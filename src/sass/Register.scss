@@ -1,0 +1,265 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .register-page__wrapper {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        max-width: 1128px;
+        margin: 0 auto;
+        flex: 1 0 auto;
+        box-sizing: border-box;
+        display: block;
+
+        .register-page__header {
+            display: block;
+    
+            .register-page__logo-container {
+                display: flex;
+                align-items: center;
+                background-color: transparent;
+
+                .register-page__logo {
+                    width: 135px;
+                    display: block;
+                }
+            }
+            
+        }
+
+        .register-page__subtitle {
+            text-align: center;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        .register-page__inner-wrapper {
+            margin: auto;
+            width: auto;
+            max-width: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+
+            .register-page__form{
+                background-color: transparent;
+                width: auto;
+                height: auto;
+                padding-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                flex-flow: wrap;
+                border-radius: 2px;
+                margin: auto;
+
+                .register-page__form-body {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    max-width: 400px;
+                    width: auto;
+                    margin: 0 auto;
+                    padding-top: 24px;
+                    background-color: #FFFFFF;
+                    position: relative;
+                    border-radius: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    .register-page__form-input-container {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+
+                        .register-page__form-input-container:first-child {
+                            margin-top: 0;
+                        }
+
+                        .input__label {
+                            color: rgba(0, 0, 0, 0.75);
+                            font-size: 14px;
+                            font-weight: 600;
+                            display: block;
+                            line-height: 1.4;
+                            margin: 16px 0 4px 0;
+                        }
+
+                        .input__input {
+                            height: 5px;
+                            background-color: rgba(0,0,0,0);
+                            border-color: rgba(0,0,0,0.75);
+                            color: rgba(0,0,0,0.9);
+                            border-radius: 4px;
+                            border-width: 1px;
+                            border-style: solid;
+                            padding-left: 16px;
+                            padding-right: 16px;
+                            padding-top: 14px;
+                            padding-bottom: 14px;
+                            font-size: 16px;
+                            width: 90%;
+                        }
+                        .register-page__password-container {
+                            position: relative;
+                            width: 100%;
+
+                            .register-page__show-password {
+                                line-height: normal;
+                                z-index: 10;
+                                margin-left: 12px;
+                                height: 35px;
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: #0A66C2;
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                cursor: pointer;
+                                margin-right: 8px;
+                                padding: 0;
+                                border: 1px solid transparent;
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    .register-page__form-body-agreement {
+                        margin-top: 16px;
+                        margin-bottom: 16px;
+                        font-size: 0.8rem;
+                        font-weight: 400;
+                        color: rgba(0,0,0,0.6);
+                        text-align: center;
+
+                        .register-page__form-body-agreement-link {
+                            font-weight: 600;
+                            color: #0A66C2;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .register-page__form-body-submit {
+                        display: block;
+                        margin: 0 auto;
+                        width: 100%;
+                        line-height: normal;
+                        box-shadow: 0 0 0 1px
+                            rgba(0,0,0,0);
+                        background-color: #0A66C2;
+                        color: #FFFFFF;
+                        cursor: pointer;
+                        min-height: 48px;
+                        border: 0;
+                        border-radius: 24px;
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        padding-left: 24px;
+                        padding-right: 24px;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .third-party__container {
+                        padding-bottom: 2px;
+                        width: 100%;
+
+                        .third-party__reg {
+                            margin: 20px auto;
+                            color: #696C6F;
+                            text-align: center;
+
+                            .third-party__line-wrapper {
+
+                                .third-party__line {
+                                    display: inline-block;
+                                    width: 100%;
+                                    height: 1px;
+                                    background: #CDCFD2;
+                                    vertical-align: middle;
+                                }
+                            }
+
+                            .third-party__content {
+                                position: absolute;
+                                left: 0;
+                                width: 100%;
+
+                                .third-party__or {
+                                    background-color: #FFFFFF;
+                                    font-size: 16px;
+                                    color: rgba(0,0,0,0.9);
+                                    padding: 0 20px;
+                                }
+                            }
+                        }
+
+                        .third-party__google-btn-container {
+                            padding-bottom: 2px;
+
+                            .third-party__google-btn-container > * {
+                                width: auto;
+                                max-width: 325px;
+                                box-shadow: 0 0 0 1px 
+                                    rgba(0,0,0,0.6);
+                                border-radius: 25px;
+                                overflow: hidden;
+                                margin: 0 auto;
+                                max-height: 40px;
+                            }
+
+                            .third-party__google {
+                                position: relative;
+                                border: none;
+                                padding: 0;
+
+                                .third-party__google-btn {
+                                    width: 100;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sign-in__container {
+                background-color: #FFFFFF;
+                width: 400px;
+                text-align: center;
+                margin: 0 auto;
+                padding: 16px 16px 24px 0;
+                
+                .sign-in__link {
+                    cursor: pointer;
+                    color: #0A66C2;
+                    font-weight: 600;
+                }
+
+                
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
