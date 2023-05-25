@@ -3,7 +3,6 @@ import { RegisterAPI, GoogleSignInAPI } from '../api/AuthAPI';
 import { GoogleLogin } from '@react-oauth/google';
 import logo from '../assets/Linkedin-logo.png';
 import { useNavigate } from 'react-router-dom';
-import '../sass/Register.scss';
 import { toast } from "react-toastify";
 
 export default function RegisterComponent() {
@@ -66,6 +65,7 @@ export default function RegisterComponent() {
                                         setCredentials({ ...credentails, password: event.target.value })
                                     }
                                 />
+                                
                                 <button className='register-page__show-password' type='button'>Show</button>
                             </div>
                         </div>

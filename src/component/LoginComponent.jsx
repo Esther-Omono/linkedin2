@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { LoginAPI } from '../api/AuthAPI';
+import { LoginAPI, GoogleSignInAPI } from '../api/AuthAPI';
+import { GoogleLogin } from '@react-oauth/google';
 import logo from '../assets/Linkedin-logo.png';
 import { useNavigate } from 'react-router-dom';
-import '../sass/Login.scss';
 import { toast } from "react-toastify";
 
 export default function LoginComponent() {
@@ -20,45 +20,88 @@ export default function LoginComponent() {
         }
     };
 
+    const googleSignIn = async () => {
+        try {
+            let res = await GoogleSignInAPI(credentails);
+            toast.success('Signed in to Linkedin!')
+        } catch (err) {
+            toast.error('Please check your credentials');
+        }
+    }
+
     return (
-        <div className='login-wrapper'>
-            <img src={logo} className='linkedinLogo'/>
-
-            <div className="login-wrapper-inner">
-                <h1 className='login-heading'>Sign in</h1>
-                <p className="sub-heading">Stay updated on your professional world</p>
-            
-                <div className="auth-inputs">
-                    <input
-                        onChange={(event) =>
-                            setCredentials({ ...credentails, email: event.target.value })
-                        }
-                        type="email"
-                        className="common-input"
-                        placeholder="Email Address"
-                    />
-
-                    <input
-                        onChange={(event) =>
-                            setCredentials({ ...credentails, password: event.target.value })
-                        }
-                        type="password"
-                        className="common-input"
-                        placeholder="Password"
-                    />
+        <div className='login-page__wrapper'>
+            <div className="login-page__header">
+                <div className="login-page__logo-container">
+                    <img src={logo} className='login-page__logo'/>
                 </div>
-
-                <button onClick={login} className='login-btn'>Log in</button>
             </div>
 
-            <hr className="hr-text" data-content="or" />
+            <div className='login-page__inner-wrapper'>
+                <h1 className='login-page__subtitle'>Welcome back</h1>
+                <p className="login-page__sub-subtitle">Stay updated on your professional world</p>    
+                
+                <form className='login-page__form'>
+                    <section className='login-page__form-body'>
+                        <div className="login-page__form-input-container">
+                            <input
+                                className="input__input"
+                                required
+                                type="email"
+                                name='email'
+                                onChange={(event) =>
+                                    setCredentials({ ...credentails, email: event.target.value })
+                                }
+                                placeholder='Email'
+                            />
 
-            <div className="google-btn-container">
-                <p className="go-to-signup">
-                    New to LinkedIn?{" "}
-                    <span className="join-now" onClick={() => navigate("/register")}>
-                        Join now
-                    </span>
+                            <div className='login-page__password-container'>
+                                <input
+                                    className='input__input'
+                                    required
+                                    type='password'
+                                    name='password'
+                                    onChange={(event) =>
+                                        setCredentials({ ...credentails, password: event.target.value })
+                                    }
+                                    placeholder='Password'
+                                />
+                                    
+                                <button className='login-page__show-password' type='button'>Show</button>
+                            </div>
+                        </div>
+
+                        <button
+                            type='submit'
+                            className='login-page__form-body-submit'
+                            value='Agree & Join'
+                            onClick={login}
+                        >
+                            Sign in
+                        </button>
+
+                        <div className='third-party__container'>
+                            <p className="third-party__reg">
+                                <span className="third-party__line-wrapper">
+                                    <span className="third-party__line"></span>
+                                </span>
+
+                                <span className="third-party__content">
+                                    <span className="third-party__or">or</span>
+                                </span>
+                            </p>
+
+                            <div className="third-party__google-btn-container">
+                                <div className="third-party__google">
+                                    <GoogleLogin type='standard' width='350' text='signin_with' shape='pill' logo_alignment='center'  onClick={googleSignIn} />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+
+                <p className='sign-in__container'>
+                    New to Linkedin? <span className='sign-in__link' onClick={() => navigate("/register")}>Sign in</span>
                 </p>
             </div>
         </div>
