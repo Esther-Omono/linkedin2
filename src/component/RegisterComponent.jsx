@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { RegisterAPI, GoogleSignInAPI } from '../api/AuthAPI';
+import { GoogleLogin } from '@react-oauth/google';
 import logo from '../assets/Linkedin-logo.png';
 import { useNavigate } from 'react-router-dom';
 import '../sass/Register.scss';
 import { toast } from "react-toastify";
-import { GoogleLogin } from '@react-oauth/google';
 
-export default function LoginComponent() {
+export default function RegisterComponent() {
     let navigate = useNavigate();
 
     const [credentails, setCredentials] = useState({});
@@ -44,11 +44,10 @@ export default function LoginComponent() {
                 <form className='register-page__form'>
                     <section className='register-page__form-body'>
                         <div className="register-page__form-input-container">
-                            <label className='input__label' for='email'>Email</label>
+                            <label className='input__label'>Email</label>
                             <input
                                 className="input__input"
                                 required
-                                id='email'
                                 type="email"
                                 name='email'
                                 onChange={(event) =>
@@ -56,12 +55,11 @@ export default function LoginComponent() {
                                 }
                             />
 
-                            <label className='input__label' for='password'>Password (6 or more characters)</label>
+                            <label className='input__label'>Password (6 or more characters)</label>
                             <div className='register-page__password-container'>
                                 <input
                                     className='input__input'
                                     required
-                                    id='password'
                                     type='password'
                                     name='password'
                                     onChange={(event) =>
