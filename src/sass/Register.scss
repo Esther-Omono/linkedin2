@@ -104,6 +104,7 @@
                             padding-bottom: 14px;
                             font-size: 16px;
                             width: 90%;
+                            margin-bottom: 25px;
                         }
 
                         .register-page__password-container {
@@ -197,31 +198,6 @@
                                     font-size: 16px;
                                     color: rgba(0,0,0,0.9);
                                     padding: 0 20px;
-                                }
-                            }
-                        }
-
-                        .third-party__google-btn-container {
-                            padding-bottom: 2px;
-
-                            .third-party__google-btn-container > * {
-                                width: auto;
-                                max-width: 325px;
-                                box-shadow: 0 0 0 1px 
-                                    rgba(0,0,0,0.6);
-                                border-radius: 25px;
-                                overflow: hidden;
-                                margin: 0 auto;
-                                max-height: 40px;
-                            }
-
-                            .third-party__google {
-                                position: relative;
-                                border: none;
-                                padding: 0;
-
-                                .third-party__google-btn {
-                                    width: 100;
                                 }
                             }
                         }

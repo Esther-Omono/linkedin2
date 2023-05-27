@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { LoginAPI, GoogleSignInAPI } from '../api/AuthAPI';
-import { GoogleLogin } from '@react-oauth/google';
+import { LoginAPI } from '../api/AuthAPI';
 import logo from '../assets/Linkedin-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
@@ -8,26 +7,18 @@ import { toast } from "react-toastify";
 export default function LoginComponent() {
     let navigate = useNavigate();
 
-    const [credentails, setCredentials] = useState({});
+    const [credentials, setCredentials] = useState({});
 
     const login = async () => {
         try {
-            let res = await LoginAPI(credentails.email, credentails.password);
+            let res = await LoginAPI(credentials.email, credentials.password);
             toast.success('Signed in to Linkedin!')
+            //navigate('/home');
         } catch (err) {
             console.log(err);
             toast.error("Please Check your Credentials");
         }
     };
-
-    const googleSignIn = async () => {
-        try {
-            let res = await GoogleSignInAPI(credentails);
-            toast.success('Signed in to Linkedin!')
-        } catch (err) {
-            toast.error('Please check your credentials');
-        }
-    }
 
     return (
         <div className='login-page__wrapper'>
@@ -50,7 +41,7 @@ export default function LoginComponent() {
                                 type="email"
                                 name='email'
                                 onChange={(event) =>
-                                    setCredentials({ ...credentails, email: event.target.value })
+                                    setCredentials({ ...credentials, email: event.target.value })
                                 }
                                 placeholder='Email'
                             />
@@ -62,7 +53,7 @@ export default function LoginComponent() {
                                     type='password'
                                     name='password'
                                     onChange={(event) =>
-                                        setCredentials({ ...credentails, password: event.target.value })
+                                        setCredentials({ ...credentials, password: event.target.value })
                                     }
                                     placeholder='Password'
                                 />
@@ -74,7 +65,7 @@ export default function LoginComponent() {
                         <button
                             type='submit'
                             className='login-page__form-body-submit'
-                            value='Agree & Join'
+                            value='Sign in'
                             onClick={login}
                         >
                             Sign in
@@ -91,17 +82,17 @@ export default function LoginComponent() {
                                 </span>
                             </p>
 
-                            <div className="third-party__google-btn-container">
+{/*}                            <div className="third-party__google-btn-container">
                                 <div className="third-party__google">
                                     <GoogleLogin type='standard' width='350' text='signin_with' shape='pill' logo_alignment='center'  onClick={googleSignIn} />
                                 </div>
-                            </div>
+                                </div>*/}
                         </div>
                     </section>
                 </form>
 
                 <p className='sign-in__container'>
-                    New to Linkedin? <span className='sign-in__link' onClick={() => navigate("/register")}>Sign in</span>
+                    New to Linkedin? <span className='sign-in__link' onClick={() => navigate("/register")}>Sign up</span>
                 </p>
             </div>
         </div>

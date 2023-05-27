@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { RegisterAPI, GoogleSignInAPI } from '../api/AuthAPI';
-import { GoogleLogin } from '@react-oauth/google';
+import { RegisterAPI } from '../api/AuthAPI';
 import logo from '../assets/Linkedin-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
@@ -14,20 +13,12 @@ export default function RegisterComponent() {
         try {
             let res = await RegisterAPI(credentails.email, credentails.password);
             toast.success('Welcome to Linkedin!')
+            navigate('/home');
         } catch (err) {
             console.log(err);
             toast.error("Please Check your Credentials");
         }
     };
-
-    const googleSignIn = async () => {
-        try {
-            let res = await GoogleSignInAPI(credentails);
-            toast.success('Welcome to Linkedin!')
-        } catch (err) {
-            toast.error('Please check your credentials');
-        }
-    }
 
     return (
         <div className='register-page__wrapper'>
@@ -93,12 +84,6 @@ export default function RegisterComponent() {
                                     <span className="third-party__or">or</span>
                                 </span>
                             </p>
-
-                            <div className="third-party__google-btn-container">
-                                <div className="third-party__google">
-                                    <GoogleLogin type='standard' width='350' text='signup_with' shape='pill' logo_alignment='center'  onClick={googleSignIn} />
-                                </div>
-                            </div>
                         </div>
                     </section>
                 </form>
